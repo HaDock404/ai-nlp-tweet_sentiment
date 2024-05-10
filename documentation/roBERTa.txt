@@ -1,0 +1,11 @@
+RoBERTa est un modèle de langage naturel pré-entraîné développé par Facebook AI. Il s'inspire du modèle original BERT (Bidirectional Encoder Representations from Transformers), mais avec plusieurs améliorations et modifications qui lui permettent d'obtenir de meilleures performances sur diverses tâches de traitement du langage naturel.
+
+Voici quelques caractéristiques importantes de RoBERTa :
+
+Pré-entraînement sur de grandes quantités de données : RoBERTa est pré-entraîné sur un ensemble de données beaucoup plus large que BERT, ce qui lui permet de capturer des informations linguistiques plus riches et complexes.
+Entraînement avec des méthodes améliorées : RoBERTa utilise des techniques d'entraînement plus avancées, telles que la désactivation dynamique des tokens (masking), la désactivation de la présence de tokens aléatoires (random masking), et la permutation de l'ordre des phrases lors de l'entraînement, ce qui améliore la robustesse et les performances du modèle.
+Fine-tuning plus efficace : RoBERTa peut être fine-tuné sur des tâches spécifiques avec moins de données et moins de temps d'entraînement que BERT, tout en conservant des performances élevées. Cela le rend plus adaptable à différentes applications et domaines d'utilisation.
+Meilleures performances : Les expériences ont montré que RoBERTa surpasse BERT sur de nombreuses tâches de traitement du langage naturel, y compris la classification de texte, la compréhension de texte, la traduction automatique et bien d'autres.
+
+https://arxiv.org/pdf/1907.11692
+

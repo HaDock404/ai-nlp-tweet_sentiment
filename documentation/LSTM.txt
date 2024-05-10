@@ -1,0 +1,30 @@
+Les réseaux de neurones à mémoire à court terme (LSTM)
+
+Les réseaux de neurones à mémoire à court et long terme (LSTM) sont un type spécialisé de réseau de neurones récurrents (RNN) conçus pour gérer efficacement les problèmes impliquant des séquences de données, comme le langage naturel. Dans le contexte de l'analyse de sentiment de texte, les LSTM sont utilisés pour comprendre et interpréter le contenu textuel afin de déterminer le sentiment exprimé.
+
+1. Séquences de texte en entrée : Les LSTM prennent en entrée des séquences de mots ou de caractères, représentant le texte à analyser. Chaque mot ou caractère est généralement encodé sous forme de vecteur à l'aide de techniques telles que l'encodage one-hot ou la vectorisation de mots (Word2Vec, GloVe, etc.).
+
+2. Traitement séquentiel : Contrairement aux réseaux de neurones traditionnels qui traitent chaque entrée de manière indépendante, les LSTM prennent en compte l'ordre séquentiel des mots dans le texte. Cela signifie qu'ils peuvent capturer les dépendances à long terme entre les mots dans une phrase ou un paragraphe.
+
+3. Mémoire à court et long terme : Les LSTM utilisent des mécanismes de "portes" pour contrôler le flux d'informations à travers le réseau. Ces portes comprennent une porte d'oubli, une porte d'entrée et une porte de sortie. Ensemble, ces portes permettent au LSTM de mémoriser sélectivement des informations importantes sur de longues séquences de texte, tout en filtrant les informations moins pertinentes. Cela leur permet de maintenir une mémoire à long terme du contexte tout en gérant les dépendances à court terme entre les mots.
+
+4. Analyse de sentiment : Une fois que le LSTM a traité toute la séquence de texte, il produit une représentation interne qui capture le contexte global et les nuances du texte. Cette représentation est ensuite utilisée pour prédire le sentiment associé au texte, par exemple, en classant le texte comme positif, négatif ou neutre.
+
+Article :
+
+https://arxiv.org/vc/arxiv/papers/1801/1801.07883v1.pdf
+
+https://machinelearningmastery.com/gentle-introduction-long-short-term-memory-networks-experts/
+
+https://arxiv.org/pdf/2105.06756
+
+https://arxiv.org/pdf/2304.11461
+
+https://arxiv.org/pdf/1909.09586
+
+https://arxiv.org/pdf/1610.09975
+
+https://arxiv.org/pdf/2309.11400
+
+https://www.kaggle.com/code/latong/lstm-vs-bert-train-data-from-scratch-huggingface
+

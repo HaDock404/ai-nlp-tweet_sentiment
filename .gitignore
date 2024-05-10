@@ -2,3 +2,5 @@ train/data/*.csv
 train/notebooks/embedding/*
 train/notebooks/artifacts/*
 mlruns/*
+train/notebooks/model/*
+train/notebooks/tokenizer/*
