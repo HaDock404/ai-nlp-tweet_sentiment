@@ -5,7 +5,7 @@ from transformers import BertTokenizer, BertForSequenceClassification, Trainer
 from transformers import TrainingArguments
 from torch.utils.data import TensorDataset
 
-data = pd.read_csv("./Data/train_df.csv")
+data = pd.read_csv("./data/train_df.csv")
 data = data.dropna(subset=['words'])
 data = data.sample(10000)
 

@@ -12,7 +12,7 @@ nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('wordnet')
 
-data = pd.read_csv('./Data/tweets.csv', encoding='latin-1', header=None)
+data = pd.read_csv('./data/tweets.csv', encoding='latin-1', header=None)
 data = data.rename(columns={data.columns[0]: 'target'})
 data = data.rename(columns={data.columns[1]: 'id'})
 data = data.rename(columns={data.columns[2]: 'date'})
@@ -65,10 +65,10 @@ def get_pos(word):
 for i in range(len(data['text_token'])):
     data['text_token'][i] = lemmatize_words(data['text_token'][i])
 
-word_dataset = './Data/normalized_dataset.csv'
+word_dataset = './data/normalized_dataset.csv'
 data.to_csv(word_dataset, index=False)
 
-df = pd.read_csv("./Data/normalized_dataset.csv")
+df = pd.read_csv("./data/normalized_dataset.csv")
 
 array_list = df['text_token'].values
 data_list = []
@@ -81,7 +81,7 @@ df['text_token'] = df_list['text_token']
 df['words'] = df['text_token'].apply(lambda x: ' '.join(x))
 df = df.drop(columns=['text_token'])
 
-word_dataset = './Data/cleaned_dataset.csv'
+word_dataset = './data/cleaned_dataset.csv'
 df.to_csv(word_dataset, index=False)
 
 df_neg = df[df['target'] == 0].sample(500000)
@@ -91,15 +91,15 @@ liste_concat = [df_neg, df_pos]
 df_sample = pd.concat([df_neg, df_pos], ignore_index=True)
 df_sample = df_sample.sample(frac=1).reset_index(drop=True)
 
-sample_df = './Data/sample_dataset.csv'
+sample_df = './data/sample_dataset.csv'
 df_sample.to_csv(sample_df, index=False)
 
-df = pd.read_csv("./Data/sample_dataset.csv")
+df = pd.read_csv("./data/sample_dataset.csv")
 
 train_df, test_df = train_test_split(df, test_size=0.2, random_state=42)
 
-saving_path = './Data/train_df.csv'
+saving_path = './data/train_df.csv'
 train_df.to_csv(saving_path, index=False)
 
-saving_path = './Data/test_df.csv'
+saving_path = './data/test_df.csv'
 test_df.to_csv(saving_path, index=False)

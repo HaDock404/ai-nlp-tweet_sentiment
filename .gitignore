@@ -4,3 +4,11 @@ train/notebooks/artifacts/*
 mlruns/*
 train/notebooks/model/*
 train/notebooks/tokenizer/*
+train/mlruns/*
+train/notebooks/mlruns/*
+train/tokenizer/*
+train/model/*
+train/notebooks/model/*
+train/notebooks/tokenizer/*
+train/notebooks/results/*
+train/results/*
