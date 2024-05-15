@@ -28,7 +28,7 @@ pip install -r ./packages/requirements.txt
 ## Launch Application
 
 ```bash
-python production/application/main.py
+uvicorn main:app --reload
 ```
 
 ## Contributing

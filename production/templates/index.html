@@ -1,0 +1,204 @@
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/style.css') }}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <header>
+        <h1>Dashboard</h1>
+    </header>
+    <main>
+        <div class="main" id="intro-container">
+            <h2 class="intro-title">Bienvenue dans le tableau de bord</h2>
+            <div class="intro-text">
+                Ce tableau de bord à pour objectif de permettre à un public non averti de comprendre notre preuve de concept du modèle roBERTa.
+            </div>
+            <div class="intro-quote">
+                "roBERTa est un modèle de langage naturel développé par Facebook AI, basé sur l'architecture transformer. Il est conçu pour améliorer la performance du modèle BERT en utilisant une formation plus poussée et des techniques d'optimisation supplémentaires, telles que l'exclusion de la prédiction de masque et l'entraînement sur des données supplémentaires non étiquetées."
+            </div>
+        </div>
+
+        <div class="expandable-box">
+            <input type="checkbox" id="toggle1">
+            <label for="toggle1" class="box-header" id="box-header1">
+                <h3 class="main-paragraph-title">
+                    Présentation du Dataset<span class="documentation">Documentation</span>
+                </h3>
+              <span class="arrow" id="arrow1">&#9658;</span>
+            </label>
+            <div class="box-content" id="box-content1">
+                <div class="main-paragraph-text">
+                    Le dataset choisi pour réaliser notre travail de veille afin de trouver une méthode récente afin d’améliorer la performance d’un modèle est le fichier Sentiment140, un dataset de 1.6millions de tweet en anglais extrait de l’api de twitter durant la période du 17 Avril 2009 au 27 Mai 2009, lorsqu’elle était encore disponible. Les tweets ont été annoté (0 = négatif, 4 = positif) et peuvent être utilisé pour prédire le sentiment du tweet.
+                    <br>
+                    <br>
+                    <div>
+                        
+                    </div>
+                    Le DataFrame est caractérisé par 6 variables :<br>
+                    <ol>
+                        <li>target: le sentiment du tweet</li>
+                        <li>id: identifiant du tweet</li>
+                        <li>date: date du tweet</li>
+                        <li>flag: La requête (LyX). Si il n'y a pas de requête alors la valeur sera NO_QUERY</li>
+                        <li>user: l'utilisateur qui a tweeté</li>
+                        <li>text: le texte du tweet (avecLyX)</li>
+                    </ol>
+                    Pour simplifier au maximum notre étude et réaliser l’entraînement des différents modèles dans un temps restreint, nous avons décidé de réaliser un échantillon de 10.000 tweets plutôt que d’entraîner nos modèles sur la totalité des données. Les différentes classes sont distribuées de manière équilibré avec 5.000 tweets caractérisés comme positif et 5.000 tweets caractérisés comme négatif.
+                    <br>
+                    <br>
+                    Un travail de pré-traitement à été effectué sur les données textuelles pour simplifier la compréhension de ces données, notamment la suppression des noms d’utilisateurs, des liens, des caractères numériques, etc.
+                    <br>
+                    <br>
+                    L’objectif de cette entrainement est d’obtenir un modèle capable de prédire le sentiment positif ou négatif d’un tweet à partir de leur contenu textuel.
+                </div>
+            </div>
+          </div>
+
+          <div class="expandable-box">
+            <input type="checkbox" id="toggle1bis">
+            <label for="toggle1bis" class="box-header" id="box-header1bis">
+                <h3 class="main-paragraph-title">
+                    Visualisation du Dataset<span class="graphical">Graphique</span>
+                </h3>
+              <span class="arrow" id="arrow1bis">&#9658;</span>
+            </label>
+            <div class="box-content" id="box-content1bis">
+                <div class="main-paragraph-text">
+                </div>
+            </div>
+          </div>
+        
+          <div class="expandable-box">
+            <input type="checkbox" id="toggle2">
+            <label for="toggle2" id="box-header2" class="box-header">
+                <h3 class="main-paragraph-title">
+                    Concept de roBERTa <span class="documentation">Documentation</span>
+                </h3>
+              <span class="arrow" id="arrow2">&#9658;</span>
+            </label>
+            <div id="box-content2" class="box-content">
+                <div class="main-paragraph-text">
+                    RoBERTa n’est qu’une amélioration, une optimisation bien senti du modèle de base BERT. Il en reprend son nom, mais également toute son architecture. Il convient alors pour bien comprendre le fonctionnement du modèle roBERTa, de bien comprendre en amont le modèle BERT.
+                    <br>
+                    <br>
+                    BERT est basé sur une architecture de réseau de neurones Transformer, une architecture introduite par Google (Vaswani et al. NeurIPS 2017) dans la publication « Attention Is All You Need ». Cette architecture est construite sur la base de différents couches d’attention.
+                    <br>
+                    <br>
+                    BERT est entraîné sur des larges jeux de données textuelles non étiquetés notamment des livres non-publiés, des pages de Wikipédia ou d’autres sites internet. 
+                    <br>
+                    <br>
+                    Durant son entrainement, BERT transforme les mots en token sur lesquels il applique une travail de compréhension pour ensuite les transmettre aux différentes couches du réseau de neurones par des représentations vectorielles. 
+                    Dans ces différentes couches d’attention, BERT tente de comprendre le contexte de chaque mot en les analysant dans leur environnement.
+                    Il utilise pour cela une méthode de masquage statique (Masked Language Model), pour masquer certains mots, puis essaie de les prédire en se basant sur le contexte des autres mots dans la phrase.
+                    BERT utilise également une méthode de masquage de phrase suivante (Next Sentence Prediction) pour tenter de déterminer si une phrase en suit une autre dans un texte.
+                    <br>
+                    <br>
+                    De cette manière, BERT arrive à capturer les relations et dépendances entre les mots à long terme dans un texte le tout de manière parallèle.
+                    <br>
+                    <br>
+                    La principale caractéristique concernant roBERTa est son optimisation, il en tire d’ailleurs son nom, robustly optimized BERT approach. <br>
+                    Nombreux sont les modèles LLMs qui permettent de réaliser différentes analyses sur des données textuelles et d’obtenir des résultats de performances extrêmement intéressants et encourageants, BERT en fait parti. <br>
+                    L’élaboration du modèle roBERTa survient dans les faiblesses du modèle BERT.
+                    <br>
+                    <br>
+                    En effet le modèle BERT a été entraîné sur un jeu de données relativement restreint (16gGB de texte), et son hyper-paramétrage n’a pas forcément bien été évalué pour maximiser ses performances.
+                    <br>
+                    <br>
+                    RoBERTa propose de pallier à ces lacunes en entraînant le modèle plus longtemps, avec des lots de données plus important et également sur beaucoup plus de données. 
+                    <br>
+                    <br>
+                    BERT utilise une tâche d'apprentissage appelée "Next Sentence Prediction" (NSP) pour son entraînement. RoBERTa ne prend pas en compte cette tâche afin d’améliorer les performances d’apprentissage, en assimilant plus facilement les relations entre les mots et les phrases.
+                    <br>
+                    <br>
+                    Enfin, BERT, utilise une méthode de masquage statique (MLM), les mêmes tokens sont masqués à chaque itération. RoBERTa utilise une technique appelée "dynamic masking» qui comme son nom l’indique, modifie dynamiquement les masques d’apprentissages à chaque itération du modèle pour lui permettre de mieux généraliser ses prédictions.
+                    <br>
+                    <br>
+                    RoBERTa représente une évolution signification de BERT, tirant parti de son architecture de base tout en introduisant des optimisations essentielles ce qui nous permettra d’améliorer notre travail de classification de sentiments sur le dataset de tweets.
+                </div>
+            </div>
+          </div>
+
+          <div class="expandable-box">
+            <input type="checkbox" id="toggle3">
+            <label for="toggle3" class="box-header" id="box-header3">
+                <h3 class="main-paragraph-title">
+                    Modélisation <span class="documentation">Documentation</span>
+                </h3>
+              <span class="arrow" id="arrow3">&#9658;</span>
+            </label>
+            <div class="box-content" id="box-content3">
+                <div class="main-paragraph-text">
+                    RoBERTa est un langage pré-entraîné qui reprend l’architecture du modèle BERT auquel il apporte différentes améliorations et optimisations pour parvenir à de meilleurs résultats.
+                    <br>
+                    <br>
+                    RoBERTa a donc été entrainé différemment de BERT, en utilisant une tâche d'apprentissage automatique appelée Masked Language Model (MLM), en supprimant la méthode de masquage de phrase suivante (Next Sentence Prediction) et enfin, en multipliant par 10 les données de son entraînement.
+                    <br>
+                    <br>
+                    La possibilité de ré-entrainement sur nos propres données du modèle BERT et roBERTa nous permettra de tester par nous même l’évolution de performance des différents modèles.
+                    <br>
+                    <br>
+                    Dans l’étude sur laquelle nous nous appuyons, la méthode d’évaluation du modèle a été effectué grâce à 3 exercices d’évaluations différents, The General Language Understanding Evaluation (GLUE), The Stanford Question Answering Dataset (SQuAD), et enfin The ReAding Comprehension from Ex-aminations (RACE).
+                    <br>
+                    <br>
+                    Notre méthode d’évaluation ne se fera pas sur des exercices de classification de modèles, mais sur des métriques sélectionnées en fonction de la problématique sur laquelle nous entrainerons les modèles à savoir, la classification de sentiments binaire.
+                    <br>
+                    <br>
+                    Pour cela nous utiliserons différentes métriques :
+                    <ul>
+                        <li>
+                            le F1 Score : mesure de précision d'un modèle de classification binaire, elle est calculé en prenant la moyenne harmonique de la précision et du rappel.
+                        </li>
+                        <li>
+                            la courbe ROC : graphique utilisé pour évaluer la performance d'un modèle de classification binaire
+                        </li>
+                    </ul>
+                    Mais avant de commencer ce travail d’évaluation il est important de préciser le traitement effectué sur les données afin de les faire correspondre au mieux à ce qu’attend en entrée les différents modèles.
+                    <br>
+                    <br>
+                    Nous avons réalisé différents nettoyage du jeu de donnée pour simplifier la compréhension de l’interprétation du sentiment binaire des tweets, a savoir :
+                    <ul>
+                        <li>
+                            la suppression des identifiants d’utilisateurs
+                        </li>
+                        <li>
+                            la suppression des liens internet
+                        </li>
+                        <li>
+                            la suppression des caractères qui ne sont pas alphanumériques
+                        </li>
+                        <li>
+                            la suppression  des mots composés d’un seul caractère (utilisé pour les smiley)
+                        </li>
+                        <li>
+                            la suppression des caractères numériques
+                        </li>
+                        <li>
+                            la conversion de tous les caractères en minuscule
+                        </li>
+                        <li>
+                            la lemmatization (trouver la racine) de tous les verbes et adjectifs
+                        </li>
+                        <li>
+                            la suppression de tous les stop-words (mot récurent n’apportant pas 			d’information supplémentaire à la compréhension).
+                        </li>
+                    </ul>
+                    Nous diviserons nos données en 3. Un premier set d’entrainement, un set de validation qui permet d’évaluer et d’ajuster l’apprentissage du modèle durant son entrainement, et enfin, un set de test, qui nous permettra d’évaluer la performance des différents modèles en fonction des métriques que nous avons sélectionné.
+                </div>
+            </div>
+          </div>
+          
+        <div class="main">
+            <input type="file" id="fileInput" accept="image/*">
+            <button onclick="uploadAndProcess()" id="processBtn">Traitement</button>
+            <div id="output"></div>
+            </div>
+    </main>
+
+    <script src="{{ url_for('static', path='/app.js') }}"></script>
+</body>
+</html>
