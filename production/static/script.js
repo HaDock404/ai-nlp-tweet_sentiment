@@ -1,52 +1,42 @@
-function uploadAndProcess() {
-    var fileInput = document.getElementById('fileInput');
-    var file = fileInput.files[0];
-
-    if (!file) {
-        alert('Veuillez sélectionner un fichier.');
-        return;
-    }
-
-    var formData = new FormData();
-    formData.append('file', file);
-    fetch('https://5fcc-194-5-53-100.ngrok-free.app/mask_image', {
-        method: 'POST',
-        headers: {
-            'accept': 'image/*'
-        },
-        body: formData
-    })
-    .then(response => {
-        return response.blob();
-    })
-    .then(blob => {
-        var imageUrl = URL.createObjectURL(blob);
-        var outputDiv = document.getElementById('output');
-        outputDiv.innerHTML = '<img src="' + imageUrl + '">';
-    })
-    .catch(error => {
-        console.error('Error', error);
-        alert('Error');
-    });
-}
-
 function display_cloudWords() {
-    var choix = document.querySelector('input[name="choixImage"]:checked').value;
-    var imageAffichee = document.getElementById('main-paragraph-image-display');
+    var choice1 = document.querySelector('input[name="image_choice1"]:checked').value;
+    var choice2 = document.querySelector('input[name="image_choice2"]:checked').value;
 
-    switch (choix) {
+    var displayed_image_1 = document.getElementById('main-paragraph-image-display_1');
+    var displayed_image_2 = document.getElementById('main-paragraph-image-display_2');
+
+    switch (choice1) {
         case 'image1':
-            imageAffichee.src = "../static/images/df_pos.png";
+            displayed_image_1.src = "../static/images/df_pos.png";
             break;
         case 'image2':
-            imageAffichee.src = "../static/images/df_neg.png";
+            displayed_image_1.src = "../static/images/df_neg.png";
             break;
         case 'image3':
-            imageAffichee.src = "../static/images/df_pos.png";
+            displayed_image_1.src = "../static/images/df_pos.png";
             break;
         default:
-            imageAffichee.src = "../static/images/df_pos.png";
+            displayed_image_1.src = "../static/images/df_pos.png";
+    }
+
+    switch (choice2) {
+        case 'image3':
+            displayed_image_2.src = "../static/images/count_pos.png";
+            break;
+        case 'image4':
+            displayed_image_2.src = "../static/images/count_neg.png";
+            break;
+        default:
+            displayed_image_2.src = "../static/images/count_pos.png";
     }
 }
+
+document.getElementById('submitBtn').addEventListener('click', function() {
+    var selectedOption = document.getElementById('options').value;
+    console.log('Option sélectionnée :', selectedOption);
+  });
+
+
+
 
 console.log("Le fichier JavaScript est correctement chargé.");

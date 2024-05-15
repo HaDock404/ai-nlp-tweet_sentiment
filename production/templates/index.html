@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <h1>Dashboard</h1>
+        <h1>Dashboard roBERTa</h1>
     </header>
     <main>
         <div class="main" id="intro-container">
@@ -23,6 +23,18 @@
                 "roBERTa est un modèle de langage naturel développé par Facebook AI, basé sur l'architecture transformer. Il est conçu pour améliorer la performance du modèle BERT en utilisant une formation plus poussée et des techniques d'optimisation supplémentaires, telles que l'exclusion de la prédiction de masque et l'entraînement sur des données supplémentaires non étiquetées."
             </div>
         </div>
+
+        <div class="dropdown-predict">
+            <h3 class="main-paragraph-title">
+                ..mais d'abord, un exemple de prédiction de notre modèle entraîné : roBERTa
+            </h3>
+            <select id="options">
+              <option value="Hey how are you today dickhead ?">Hey how are you today dickhead ?</option>
+              <option value="I'm so happy to see u">I'm so happy to see u</option>
+              <option value="Fuck you">Fuck you</option>
+            </select>
+            <button class="button_dropdown" id="submitBtn">Prédire le sentiment</button>
+          </div>
 
         <div class="expandable-box">
             <input type="checkbox" id="toggle1">
@@ -64,7 +76,7 @@
             <input type="checkbox" id="toggle1bis">
             <label for="toggle1bis" class="box-header" id="box-header1bis">
                 <h3 class="main-paragraph-title">
-                    Visualisation du Dataset<span class="graphical">Graphique</span>
+                    Nuage de mots<span class="graphical">Graphique</span>
                 </h3>
                 <span class="arrow" id="arrow1bis">&#9658;</span>
             </label>
@@ -73,19 +85,46 @@
                     Pour faciliter la compréhension du dataset, nous avons réalisé plusieurs visualisations graphiques permettant aux utilisateurs de contextualiser les données qui ont permis d'entraîner les différents modèles afin d'évaluer leurs performances.
                     <br>
                     <br>
-                    Voici différents nuages de mot permettant de visualiser le sentiment des tweet selon leur label positif ou négatif.
+                    Voici différents nuages de mot permettant de visualiser le sentiment des tweets selon leur label positif ou négatif.
                     <div class="main-paragraph-radio">
-                        <input type="radio" name="choixImage" value="image1" id="image1" onclick="display_cloudWords()" checked> 
+                        <input type="radio" name="image_choice1" value="image1" id="image1" onclick="display_cloudWords()" checked> 
                         <label class="radio-style" for="image1">Tweets Positifs</label>
-                        <input type="radio" name="choixImage" value="image2" id="image2" onclick="display_cloudWords()">
+                        <input type="radio" name="image_choice1" value="image2" id="image2" onclick="display_cloudWords()">
                         <label class="radio-style" for="image2">Tweets Négatifs</label>
-                        <input type="radio" name="choixImage" value="image3" id="image3" onclick="display_cloudWords()">
-                        <label class="radio-style" for="image3">Tweets Positifs & Négatifs</label>
                     </div>  
                     
-                    <div id="main-paragraph-image">
-                        <img src="../static/images/df_pos.png" alt="" id="main-paragraph-image-display">
+                    <div class="main-paragraph-image">
+                        <img src="../static/images/df_pos.png" alt="" id="main-paragraph-image-display_1">
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="expandable-box">
+            <input type="checkbox" id="toggle1ter">
+            <label for="toggle1ter" class="box-header" id="box-header1ter">
+                <h3 class="main-paragraph-title">
+                    Distribution des données<span class="graphical">Graphique</span>
+                </h3>
+                <span class="arrow" id="arrow1ter">&#9658;</span>
+            </label>
+            <div class="box-content" id="box-content1ter">
+                <div class="main-paragraph-text">
+                    Pour faciliter la compréhension du dataset, nous avons réalisé plusieurs visualisations graphiques permettant aux utilisateurs de contextualiser les données qui ont permis d'entraîner les différents modèles afin d'évaluer leurs performances.
+                    <br>
+                    <br>
+                    Voici différentes visualisation de la distribution du nombre de mots par tweet selon leur label positif ou négatif.
+                    <div class="main-paragraph-radio">
+                        <input type="radio" name="image_choice2" value="image3" id="image3" onclick="display_cloudWords()" checked> 
+                        <label class="radio-style" for="image3">Tweets Positifs</label>
+                        <input type="radio" name="image_choice2" value="image4" id="image4" onclick="display_cloudWords()">
+                        <label class="radio-style" for="image4">Tweets Négatifs</label>
+                    </div>  
+                    
+                    <div class="main-paragraph-image">
+                        <img src="../static/images/count_pos.png" alt="" id="main-paragraph-image-display_2">
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -208,12 +247,65 @@
                 </div>
             </div>
           </div>
-          
-        <div class="main">
-            <input type="file" id="fileInput" accept="image/*">
-            <button onclick="uploadAndProcess()" id="processBtn">Traitement</button>
-            <div id="output"></div>
+
+          <div class="expandable-box">
+            <input type="checkbox" id="toggle4">
+            <label for="toggle4" class="box-header" id="box-header4">
+                <h3 class="main-paragraph-title">
+                    Synthèse des résultats <span class="documentation">Documentation</span>
+                </h3>
+              <span class="arrow" id="arrow4">&#9658;</span>
+            </label>
+            <div class="box-content" id="box-content4">
+                <div class="main-paragraph-text">
+                    Il est désormais temps de présenter la performance des différents modèles. 
+                    <br>
+                    <br>
+                    Grâce à notre utilisation de Mlflow Tracking et des différentes métriques sélectionnés nous avons des résultats à étudier et commenter.
+                    <br>
+                    <br>
+                    Le F1 score combine à la fois la précision (capacité du modèle à ne pas classer à tort un exemple positif comme négatif) et le rappel (capacité du modèle à identifier tous les exemples positifs). 
+                    <br>
+                    Une valeur de F1 score proche de 1 indique un modèle très performant, tandis qu'une valeur proche de 0 indique une performance médiocre.
+                    <br>
+                    <br>
+                    Nous pouvons constater que le modèle roBERTa obtiens un meilleur score 0.89 que le modèle BERT 0.81.
+                    <br>
+                    En effet, grâce à son entraînement sur de plus large jeu de données et de plus nombreuses séquences d’itération roBERTa réussi à capturer des informations contextuelles plus fines et donc permettre une meilleure classification de sentiments sur des données textuelles.
+                    <br>
+                    <br>
+                    Cependant, de par sa complexité et sa taille, roBERTa nécessite un temps de traitement bien supérieur à BERT et il convient donc de relativiser sa performance.
+                    <br>
+                    <br>
+                    En conclusion, les résultats indiquent que roBERTa surpasse BERT en termes de performance, comme en témoigne son F1 Score plus élevé. Cependant, le choix entre ces deux modèles devrait également prendre en considération des facteurs tels que la disponibilité des ressources de calcul et les exigences spécifiques de la tâche à accomplir.
+                </div>
             </div>
+          </div>
+
+          <div class="expandable-box">
+            <input type="checkbox" id="toggle5">
+            <label for="toggle5" class="box-header" id="box-header5">
+                <h3 class="main-paragraph-title">
+                    Courbe ROC <span class="graphical">Graphique</span>
+                </h3>
+              <span class="arrow" id="arrow5">&#9658;</span>
+            </label>
+            <div class="box-content" id="box-content5">
+                <div class="main-paragraph-text">
+                    La courbe ROC (Receiver Operating Characteristic) est un graphique qui illustre la performance d'un modèle de classification binaire à différents seuils de décision. 
+                    <br>
+                    <br>
+                    Sur l'axe des x, elle représente le taux de faux positifs (1 - spécificité), tandis que sur l'axe des y, elle représente le taux de vrais positifs (sensibilité). 
+                    <br>
+                    <br>
+                    Plus la courbe ROC est proche du coin supérieur gauche, meilleure est la performance du modèle.
+                </div>
+            </div>
+          </div>
+
+          <footer>
+            <p>Tous droits réservés haDock404</p>
+        </footer>
     </main>
     <!-- HTML -->
     <script src="../static/script.js"></script>

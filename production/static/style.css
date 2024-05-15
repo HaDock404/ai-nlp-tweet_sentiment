@@ -147,6 +147,14 @@ h1 {
   input[id="toggle1bis"]:checked ~ #box-content1bis {
     max-height: 1000px;
   }
+
+  input[id="toggle1ter"]:checked + #box-header1ter #arrow1ter {
+    transform: rotate(90deg);
+  }
+
+  input[id="toggle1ter"]:checked ~ #box-content1ter {
+    max-height: 1000px;
+  }
   
   input[id="toggle2"]:checked + #box-header2 #arrow2 {
     transform: rotate(90deg);
@@ -164,6 +172,22 @@ h1 {
     max-height: 10000px;
   }
 
+  input[id="toggle4"]:checked + #box-header4 #arrow4 {
+    transform: rotate(90deg);
+  }
+
+  input[id="toggle4"]:checked ~ #box-content4 {
+    max-height: 10000px;
+  }
+
+  input[id="toggle5"]:checked + #box-header5 #arrow5 {
+    transform: rotate(90deg);
+  }
+
+  input[id="toggle5"]:checked ~ #box-content5 {
+    max-height: 10000px;
+  }
+
   .main-paragraph-radio {
     display: flex;
     flex-direction: row;
@@ -175,7 +199,7 @@ h1 {
   margin-right: 20px;
 }
 
-#main-paragraph-image {
+.main-paragraph-image {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -183,7 +207,7 @@ h1 {
   height: 500px;
 }
 
-#main-paragraph-image-display {
+#main-paragraph-image-display_1 {
   width: 80%;
 }
 
@@ -274,3 +298,34 @@ button:hover {
     margin-top: 20px;
 }
 
+
+
+
+footer {
+  background-color: #717171;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.dropdown-predict {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+select {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.button_dropdown {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
