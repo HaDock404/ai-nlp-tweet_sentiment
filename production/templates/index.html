@@ -69,6 +69,45 @@
             </label>
             <div class="box-content" id="box-content1bis">
                 <div class="main-paragraph-text">
+                    Pour faciliter la compréhension du dataset, nous avons réalisé plusieurs visualisations graphiques permettant aux utilisateurs de contextualiser les données qui ont permis d'entraîner les différents modèles afin d'évaluer leurs performances.
+                    <br>
+                    <br>
+                    Voici différents nuages de mot permettant de visualiser le sentiment des tweet selon leur label positif ou négatif.
+                    <div class="main-paragraph-graphical">
+                        <div class="main-paragraph-graphical-button">
+                            <button class="graphical-button" id="button1">
+                                <input type="checkbox" id="toggle-button1">
+                                <label for="toggle-button1" class="button">Tweets Positifs</label>
+                            </button>
+                            <input type="checkbox" id="toggle-button1">
+                            <label for="toggle-button1" class="graphical-button">Tweets Positifs</label>
+
+                            <button class="graphical-button" id="button2">Tweets Négatifs</button>
+                            <button class="graphical-button" id="button3">Tweets Négatifs & Positifs</button>
+                        </div>
+                        <div class="image-container">
+                            <img src="./static/images/df_neg.png" alt="" id="image1">
+                        </div>
+
+                        <div class="main-paragraph-graphical-button">
+                            <input type="radio" id="option1" name="photo" checked>
+                            <label for="option1">Tweets Positifs</label>
+                            <input type="radio" id="option2" name="photo">
+                            <label for="option2">Tweets Négatifs</label>
+                            <input type="radio" id="option3" name="photo">
+                            <label for="option3">Tweets Négatifs & Positifs</label>
+                            
+                            <div class="image-container">
+                              <img src="./static/images/df_pos.png" alt="nuage de mot positif" id="photo1" class="photo">
+                              <img src="./static/images/df_neg.png" alt="nuage de mot négatif" id="photo2" class="photo">
+                              <img src="./static/images/df_neg.png" alt="nuage de mot positif & négatif" id="photo3" class="photo">
+                            </div>
+                        </div>
+                          
+
+
+                    </div>
+                    
                 </div>
             </div>
           </div>

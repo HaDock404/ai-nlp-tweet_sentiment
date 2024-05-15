@@ -29,9 +29,9 @@ h1 {
 }
 
 #intro-container {
-    background-color: #f4f4f4; /* Couleur de fond */
-    padding: 50px; /* Espacement intérieur */
-    text-align: center; /* Alignement du texte au centre */
+    background-color: #f4f4f4;
+    padding: 50px;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -165,7 +165,113 @@ h1 {
   }
 
   
+.main-paragraph-graphical {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+
+.graphical-button {
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .main-paragraph-graphical-button {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  #button1 {
+    background-color: #4CAF50;
+  }
+
+  #button1:hover {
+    background-color: #0056b3;
+  }
+
+  #button2 {
+    background-color: #af4c4c;
+  }
+
+  #button2:hover {
+    background-color: #0056b3;
+  }
+
+  #button3 {
+    background-color: #af844c;
+  }
+
+  #button3:hover {
+    background-color: #0056b3;
+  }
+
+  .button {
+    cursor: pointer;
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .image-container img {
+    display: none;
+    max-width: 100%;
+    height: auto;
+  }
+
+  #toggle-button1:checked ~ .image-container #image1{
+    display: block;
+  }
+
+
+/*$$$$$$$$$$$*/
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  label {
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .photo {
+    display: none;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  #option1:checked ~ .image-container #photo1,
+  #option2:checked ~ .image-container #photo2,
+  #option3:checked ~ .image-container #photo3 {
+    display: block;
+  }
+  
+  
 
 
 
