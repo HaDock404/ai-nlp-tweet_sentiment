@@ -29,3 +29,24 @@ function uploadAndProcess() {
         alert('Error');
     });
 }
+
+function display_cloudWords() {
+    var choix = document.querySelector('input[name="choixImage"]:checked').value;
+    var imageAffichee = document.getElementById('main-paragraph-image-display');
+
+    switch (choix) {
+        case 'image1':
+            imageAffichee.src = "../static/images/df_pos.png";
+            break;
+        case 'image2':
+            imageAffichee.src = "../static/images/df_neg.png";
+            break;
+        case 'image3':
+            imageAffichee.src = "../static/images/df_pos.png";
+            break;
+        default:
+            imageAffichee.src = "../static/images/df_pos.png";
+    }
+}
+
+console.log("Le fichier JavaScript est correctement chargé.");

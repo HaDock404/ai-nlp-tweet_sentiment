@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/style.css') }}">
+    <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/style.css') }}">-->
+    <link rel="stylesheet" href="../static/style.css">
     <title>Dashboard</title>
 </head>
 <body>
@@ -57,15 +58,15 @@
                     L’objectif de cette entrainement est d’obtenir un modèle capable de prédire le sentiment positif ou négatif d’un tweet à partir de leur contenu textuel.
                 </div>
             </div>
-          </div>
+        </div>
 
-          <div class="expandable-box">
+        <div class="expandable-box">
             <input type="checkbox" id="toggle1bis">
             <label for="toggle1bis" class="box-header" id="box-header1bis">
                 <h3 class="main-paragraph-title">
                     Visualisation du Dataset<span class="graphical">Graphique</span>
                 </h3>
-              <span class="arrow" id="arrow1bis">&#9658;</span>
+                <span class="arrow" id="arrow1bis">&#9658;</span>
             </label>
             <div class="box-content" id="box-content1bis">
                 <div class="main-paragraph-text">
@@ -73,44 +74,21 @@
                     <br>
                     <br>
                     Voici différents nuages de mot permettant de visualiser le sentiment des tweet selon leur label positif ou négatif.
-                    <div class="main-paragraph-graphical">
-                        <div class="main-paragraph-graphical-button">
-                            <button class="graphical-button" id="button1">
-                                <input type="checkbox" id="toggle-button1">
-                                <label for="toggle-button1" class="button">Tweets Positifs</label>
-                            </button>
-                            <input type="checkbox" id="toggle-button1">
-                            <label for="toggle-button1" class="graphical-button">Tweets Positifs</label>
-
-                            <button class="graphical-button" id="button2">Tweets Négatifs</button>
-                            <button class="graphical-button" id="button3">Tweets Négatifs & Positifs</button>
-                        </div>
-                        <div class="image-container">
-                            <img src="./static/images/df_neg.png" alt="" id="image1">
-                        </div>
-
-                        <div class="main-paragraph-graphical-button">
-                            <input type="radio" id="option1" name="photo" checked>
-                            <label for="option1">Tweets Positifs</label>
-                            <input type="radio" id="option2" name="photo">
-                            <label for="option2">Tweets Négatifs</label>
-                            <input type="radio" id="option3" name="photo">
-                            <label for="option3">Tweets Négatifs & Positifs</label>
-                            
-                            <div class="image-container">
-                              <img src="./static/images/df_pos.png" alt="nuage de mot positif" id="photo1" class="photo">
-                              <img src="./static/images/df_neg.png" alt="nuage de mot négatif" id="photo2" class="photo">
-                              <img src="./static/images/df_neg.png" alt="nuage de mot positif & négatif" id="photo3" class="photo">
-                            </div>
-                        </div>
-                          
-
-
-                    </div>
+                    <div class="main-paragraph-radio">
+                        <input type="radio" name="choixImage" value="image1" id="image1" onclick="display_cloudWords()" checked> 
+                        <label class="radio-style" for="image1">Tweets Positifs</label>
+                        <input type="radio" name="choixImage" value="image2" id="image2" onclick="display_cloudWords()">
+                        <label class="radio-style" for="image2">Tweets Négatifs</label>
+                        <input type="radio" name="choixImage" value="image3" id="image3" onclick="display_cloudWords()">
+                        <label class="radio-style" for="image3">Tweets Positifs & Négatifs</label>
+                    </div>  
                     
+                    <div id="main-paragraph-image">
+                        <img src="../static/images/df_pos.png" alt="" id="main-paragraph-image-display">
+                    </div>
                 </div>
             </div>
-          </div>
+        </div>
         
           <div class="expandable-box">
             <input type="checkbox" id="toggle2">
@@ -237,7 +215,7 @@
             <div id="output"></div>
             </div>
     </main>
-
-    <script src="{{ url_for('static', path='/app.js') }}"></script>
+    <!-- HTML -->
+    <script src="../static/script.js"></script>
 </body>
 </html>

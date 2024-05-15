@@ -164,96 +164,59 @@ h1 {
     max-height: 10000px;
   }
 
-  
-.main-paragraph-graphical {
-    width: 100%;
-    margin-top: 30px;
+  .main-paragraph-radio {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    margin: 30px;
+  }
+
+.radio-style {
+  margin-right: 20px;
+}
+
+#main-paragraph-image {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 500px;
+}
+
+#main-paragraph-image-display {
+  width: 80%;
 }
 
 
-.graphical-button {
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  .main-paragraph-graphical-button {
-    width: 80%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 30px;
-  }
-
-  #button1 {
-    background-color: #4CAF50;
-  }
-
-  #button1:hover {
-    background-color: #0056b3;
-  }
-
-  #button2 {
-    background-color: #af4c4c;
-  }
-
-  #button2:hover {
-    background-color: #0056b3;
-  }
-
-  #button3 {
-    background-color: #af844c;
-  }
-
-  #button3:hover {
-    background-color: #0056b3;
-  }
-
-  .button {
-    cursor: pointer;
-  }
-
-  .image-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-
-  .image-container img {
-    display: none;
-    max-width: 100%;
-    height: auto;
-  }
-
-  #toggle-button1:checked ~ .image-container #image1{
-    display: block;
-  }
 
 
-/*$$$$$$$$$$$*/
 
-.dropdown {
+
+
+
+
+
+
+.main-paragraph-dropdow {
     position: relative;
-    display: inline-block;
+
+    width: 100%;
+    height: 600px;
   }
   
-  input[type="radio"] {
-    display: none;
-  }
-  
-  label {
+  .main-paragraph-dropdow input[type="radio"] {
     display: block;
+  }
+  
+  .main-paragraph-dropdow label {
     padding: 10px;
     cursor: pointer;
   }
   
   .image-container {
+    position: absolute;
+    top: 150px;
+    width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 10px;
@@ -262,6 +225,7 @@ h1 {
   .photo {
     display: none;
     max-width: 100%;
+    width: 80%;
     height: auto;
   }
   
@@ -270,8 +234,19 @@ h1 {
   #option3:checked ~ .image-container #photo3 {
     display: block;
   }
-  
-  
+
+
+
+
+  #image-containerX {
+    width: 100%;
+    height: 200px;
+    background-color: red;
+  }
+
+
+
+
 
 
 
@@ -299,7 +274,3 @@ button:hover {
     margin-top: 20px;
 }
 
-img {
-    width: 500px;
-    height: 300px;
-}
