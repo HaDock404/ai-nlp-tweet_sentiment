@@ -2,6 +2,8 @@ train/data/*.csv
 train/notebooks/embedding/*
 train/notebooks/artifacts/*
 mlruns/*
+train/notebooks/model_roberta/*
+train/notebooks/tokenizer_roberta/*
 train/notebooks/model/*
 train/notebooks/tokenizer/*
 train/mlruns/*
@@ -11,4 +13,5 @@ train/model/*
 train/notebooks/model/*
 train/notebooks/tokenizer/*
 train/notebooks/results/*
+train/notebooks/results_roberta/*
 train/results/*
