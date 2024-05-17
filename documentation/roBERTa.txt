@@ -9,3 +9,5 @@ Meilleures performances : Les expériences ont montré que RoBERTa surpasse BERT
 
 https://arxiv.org/pdf/1907.11692
 
+https://arxiv.org/pdf/1810.04805
+
