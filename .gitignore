@@ -16,3 +16,4 @@ train/notebooks/tokenizer/*
 train/notebooks/results/*
 train/notebooks/results_roberta/*
 train/results/*.DS_Store
+train/models/*

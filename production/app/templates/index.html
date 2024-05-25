@@ -1,13 +1,12 @@
-</html>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-    <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/style.css') }}">-->
-    <link rel="stylesheet" href="../static/style.css">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script2.js" defer></script>
 </head>
 <body>
     <header>
@@ -29,12 +28,27 @@
                 ..mais d'abord, un exemple de prédiction de notre modèle entraîné : roBERTa
             </h3>
             <select id="options">
-              <option value="Hey how are you today dickhead ?">Hey how are you today dickhead ?</option>
-              <option value="I'm so happy to see u">I'm so happy to see u</option>
-              <option value="Fuck you">Fuck you</option>
+              <option value="It's officail. I'm sick  runny nose, soar throat, maaaajooor headache. uughh">It's officail. I'm sick  runny nose, soar throat, maaaajooor headache. uughh</option>
+              <option value="I look forward to that the school is ended   It's very long !!">I look forward to that the school is ended   It's very long !!</option>
+              <option value="Another week of being stuck with myself">Another week of being stuck with myself</option>
+              <option value="@gigiamk30 I wish I weren't feeling tired I would go hunting for the guys LOL too bad">@gigiamk30 I wish I weren't feeling tired I would go hunting for the guys LOL too bad</option>
+              <option value="@Yin_Yin so why do they make it soooo damn hard to buy one and install it? Not Happy">@Yin_Yin so why do they make it soooo damn hard to buy one and install it? Not Happy</option>
+              <option value="damn it I just missed a call from other girl">damn it I just missed a call from other girl</option>
+              <option value="I don't wanna go to sleep now, but I have to if I wanna be able to function at work tomorrow at 6 am">I don't wanna go to sleep now, but I have to if I wanna be able to function at work tomorrow at 6 am</option>
+              <option value="No twitter, no phones, no TV... It will be a looong day">No twitter, no phones, no TV... It will be a looong day</option>
+              <option value="My back hurts   I need a massage...">My back hurts   I need a massage...</option>
+              <option value="Taking a walk, beautiful outside now that the sun came out">Taking a walk, beautiful outside now that the sun came out</option>
+              <option value="I just played mario kart wii. haha its fun.">I just played mario kart wii. haha its fun.</option>
+              <option value="@sick_nasty Awwww how nice! Happy birthday Mrs. Abercrombie!!!!">@sick_nasty Awwww how nice! Happy birthday Mrs. Abercrombie!!!!</option>
+              <option value="@Shar_har_har Your love is amazing">@Shar_har_har Your love is amazing</option>
+              <option value="going to the JFK graduation ceremony.  congrats seniors!">going to the JFK graduation ceremony.  congrats seniors!</option>
+              <option value="-_- nah, I just saw him on tv and fell in love again">-_- nah, I just saw him on tv and fell in love again</option>
+              <option value="@debnixon you're a simple woman with simple tastes">@debnixon you're a simple woman with simple tastes</option>
+              <option value="hiding in the freezer at work eating cookie dough    --SLOANSTER--">hiding in the freezer at work eating cookie dough    --SLOANSTER--</option>
             </select>
-            <button class="button_dropdown" id="submitBtn">Prédire le sentiment</button>
-          </div>
+            <button class="button_dropdown" id="submitBtn" onclick="predict_sentiment()">Prédire le sentiment</button>
+            <div id="result"></div>
+        </div>
 
         <div class="expandable-box">
             <input type="checkbox" id="toggle1">
@@ -94,7 +108,7 @@
                     </div>  
                     
                     <div class="main-paragraph-image">
-                        <img src="../static/images/df_pos.png" alt="" id="main-paragraph-image-display_1">
+                        <img src="./static/images/df_pos.png" alt="" id="main-paragraph-image-display_1">
                     </div>
                 </div>
             </div>
@@ -122,7 +136,7 @@
                     </div>  
                     
                     <div class="main-paragraph-image">
-                        <img src="../static/images/count_pos.png" alt="" id="main-paragraph-image-display_2">
+                        <img src="../static/images/countX_pos.png" alt="" id="main-paragraph-image-display_2">
                     </div>
 
                 </div>
@@ -274,10 +288,17 @@
                     En effet, grâce à son entraînement sur de plus large jeu de données et de plus nombreuses séquences d’itération roBERTa réussi à capturer des informations contextuelles plus fines et donc permettre une meilleure classification de sentiments sur des données textuelles.
                     <br>
                     <br>
-                    Cependant, de par sa complexité et sa taille, roBERTa nécessite un temps de traitement bien supérieur à BERT et il convient donc de relativiser sa performance.
+                    Quant à la courbe ROC (Receiver Operating Characteristic), c’est un outil visuelle
+                    permettant d’évaluer la performance d’un classification binaire. En effet, elle fait
+                    apparaître le taux de vrais positifs en fonction du taux de faux positifs.
+                    Nous pouvons résumer la performance de nos modèles en mesurant l’air sous la
+                    courbe ROC. Une valeur de 1 aura pour signification un modèle qui ne fait jamais
+                    d’erreur. <br>
+                    Ici, les valeurs pour nos différents modèles sont respectivement de 0.91 pour
+                    roBERTa et 0.88 pour BERT.
                     <br>
                     <br>
-                    En conclusion, les résultats indiquent que roBERTa surpasse BERT en termes de performance, comme en témoigne son F1 Score plus élevé. Cependant, le choix entre ces deux modèles devrait également prendre en considération des facteurs tels que la disponibilité des ressources de calcul et les exigences spécifiques de la tâche à accomplir.
+                    En conclusion, les résultats indiquent que roBERTa surpasse BERT en termes de performance, comme en témoigne son F1 Score et AUC plus élevés. Cependant, le choix entre ces deux modèles devrait également prendre en considération des facteurs tels que la disponibilité des ressources de calculs et les exigences spécifiques de la tâche à accomplir.
                 </div>
             </div>
           </div>
@@ -292,13 +313,26 @@
             </label>
             <div class="box-content" id="box-content5">
                 <div class="main-paragraph-text">
-                    La courbe ROC (Receiver Operating Characteristic) est un graphique qui illustre la performance d'un modèle de classification binaire à différents seuils de décision. 
+                    La courbe ROC (Receiver Operating Characteristic) est un graphique qui illustre la performance d'un modèle de classification binaire à différents seuils de décision.
                     <br>
                     <br>
                     Sur l'axe des x, elle représente le taux de faux positifs (1 - spécificité), tandis que sur l'axe des y, elle représente le taux de vrais positifs (sensibilité). 
                     <br>
                     <br>
                     Plus la courbe ROC est proche du coin supérieur gauche, meilleure est la performance du modèle.
+                    <br>
+                    <br>
+                    Voici les graphiques permettant de visualiser la performance des différents modèles.
+                    <div class="main-paragraph-radio">
+                        <input type="radio" name="image_choice3" value="image5" id="image5" onclick="display_cloudWords()" checked> 
+                        <label class="radio-style" for="image5">BERT ROC</label>
+                        <input type="radio" name="image_choice3" value="image6" id="image6" onclick="display_cloudWords()">
+                        <label class="radio-style" for="image6">roBERTa ROC</label>
+                    </div>  
+                    
+                    <div class="main-paragraph-image">
+                        <img src="../static/images/bert_ROC.png" alt="" id="main-paragraph-image-display_3">
+                    </div>
                 </div>
             </div>
           </div>
@@ -307,7 +341,5 @@
             <p>Tous droits réservés haDock404</p>
         </footer>
     </main>
-    <!-- HTML -->
-    <script src="../static/script.js"></script>
 </body>
 </html>

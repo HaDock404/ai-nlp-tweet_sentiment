@@ -329,3 +329,15 @@ select {
   border: none;
   cursor: pointer;
 }
+
+#result {
+    height: 30px;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+.sentiment {
+    text-decoration: underline;
+    font-weight: bold;
+}
